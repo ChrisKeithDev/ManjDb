@@ -1,0 +1,67 @@
+﻿<Window x:Class="ManjReports.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ManjReports"
+        mc:Ignorable="d"
+        Title="ManjReports" Height="410" Width="400">
+    <Window.DataContext>
+        <local:MainWindowViewModel/>
+    </Window.DataContext>
+    <Grid Margin="20">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0">
+            <GroupBox Header="Classrooms">
+                <StackPanel Orientation="Vertical">
+                    <CheckBox x:Name="cbAllClassrooms" Content="All Classrooms"  
+                              Checked="OnCheckedAllClassrooms" Unchecked="OnUncheckedAllClassrooms"/>
+                    <CheckBox x:Name="cbClassroomA" Content="Classroom A" Checked="OnCheckedClassroom" Unchecked="OnUncheckedClassroom"/>
+                    <CheckBox x:Name="cbClassroomB" Content="Classroom B" Checked="OnCheckedClassroom" Unchecked="OnUncheckedClassroom"/>
+                    <CheckBox x:Name="cbClassroomC" Content="Classroom C"
+                               Checked="OnCheckedClassroom" Unchecked="OnUncheckedClassroom"/>
+                    <CheckBox x:Name="cbClassroomD" Content="Classroom D" 
+                              Checked="OnCheckedClassroom" Unchecked="OnUncheckedClassroom"/>
+                    <CheckBox x:Name="cbClassroomE" Content="Classroom E" Checked="OnCheckedClassroom" Unchecked="OnUncheckedClassroom"/>
+                </StackPanel>
+            </GroupBox>
+
+            <GroupBox Header="Files">
+                <StackPanel Orientation="Vertical">
+                    <CheckBox x:Name="cbAllFiles" Content="All Files" 
+                              Checked="OnCheckedAllFiles" Unchecked="OnUncheckedAllFiles"/>
+                    <CheckBox x:Name="cbAllergies" Content="Allergies and Permissions"
+                              Checked="OnCheckedFile" Unchecked="OnUncheckedFile"/>
+                    <CheckBox x:Name="cbEmergency" Content="Emergency Contacts"
+                              Checked="OnCheckedFile" Unchecked="OnUncheckedFile"/>
+                    <CheckBox x:Name="cbPickup" Content="Authorized Pickups"
+                              Checked="OnCheckedFile" Unchecked="OnUncheckedFile"/>
+                    <CheckBox x:Name="cbAges" Content="Age by Date"
+                              Checked="OnCheckedFile" Unchecked="OnUncheckedFile"/>
+                    <CheckBox x:Name="cbEnrollment" Content="Enrollment List"
+                              Checked="OnCheckedFile" Unchecked="OnUncheckedFile"/>
+                    <CheckBox x:Name="cbParentDirFile" Content="Parent Directory"
+                              Checked="OnCheckedFile" Unchecked="OnUncheckedFile"/>
+                    <CheckBox x:Name="cbMailingList" Content="Mailing List"
+                              Checked="OnCheckedFile" Unchecked="OnUncheckedFile"/>
+                    <CheckBox x:Name="cbEcpDismissal" Content="ECP Dismissal"
+                              Checked="OnCheckedFile" Unchecked="OnUncheckedFile"/>
+                    <CheckBox x:Name="cbStudentZipCodes" Content="Student ZipCodes"
+                              Checked="OnCheckedFile" Unchecked="OnUncheckedFile"/>
+
+                </StackPanel>
+            </GroupBox>
+
+            <Button x:Name="btnBuildSelected" Content="Build Selected" Click="btnBuildSelected_Click" Margin="10"/>
+        </StackPanel>
+        <GroupBox Grid.Column="1" Header="Selected Age by Date" Height="50" VerticalAlignment="Top">
+            <DatePicker x:Name="datePicker" SelectedDate="{Binding SelectedDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" BorderBrush="{x:Null}" Height="29" Margin="2,0,-2,0" VerticalAlignment="Top" />
+        </GroupBox>
+
+
+    </Grid>
+</Window>
